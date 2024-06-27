@@ -29,7 +29,7 @@ class Vendedor extends Model
     {
         return [
             'required' => 'O campo :Attribute é obrigatório',
-            'nome_vendedor.min' => 'O nome deve conter no mínimo 5 caracteres!',
+            'nome_vendedor.min' => 'O nome deve conter no mínimo 3 caracteres!',
             'nome_vendedor.max' => 'O nome deve conter no máximo 50 caracteres!',
             'email.unique' => 'O email inserido já está cadastrado'
         ];

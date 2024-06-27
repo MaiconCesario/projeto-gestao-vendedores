@@ -31,7 +31,7 @@ class VendedorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate($this->vendedor->rules(), $this->vendedor->feedback());
+        $regras = $request->validate($this->vendedor->rules(), $this->vendedor->feedback());
 
         $vendedor = $this->vendedor->fill([
             'nome_vendedor' => $request->nome_vendedor,
@@ -39,7 +39,7 @@ class VendedorController extends Controller
             'senha' => bcrypt($request->senha)
         ])->save();
         
-        return response()->json($vendedor, 201);
+        return response()->json([$vendedor, $regras], 201);
     }
 
     /**
@@ -66,51 +66,48 @@ class VendedorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {             
-        $vendedor = $this->vendedor->find($id);
-    
-        if($vendedor === null)
-        {
-            return response(['erro' => 'Impossível realizar a alteração. O vendedor não existe!']);
-        } 
-    
-        // Validação dos dados
-        $rules = $vendedor->rules();
-        $feedback = $vendedor->feedback();
-    
-        if ($request->isMethod('PATCH')) {
-            $regrasDinamicas = [];
-            foreach($rules as $key => $regras) {
-                if($request->has($key)) 
-                {
-                    $regrasDinamicas[$key] = $regras;
-                }
+{             
+    $vendedor = $this->vendedor->find($id);
+
+    if ($vendedor === null) {
+        return response(['erro' => 'Impossível realizar a alteração. O vendedor não existe!']);
+    } 
+
+    // Validação dos dados
+    $rules = $vendedor->rules();
+    $feedback = $vendedor->feedback();
+
+    $regrasDinamicas = $rules; // Inicializa com todas as regras
+
+    if ($request->isMethod('PATCH')) {
+        $regrasDinamicas = [];
+        foreach ($rules as $key => $regras) {
+            if ($request->has($key)) {
+                $regrasDinamicas[$key] = $regras;
             }
-            $validator = Validator::make($request->all(), $regrasDinamicas);
-        } else {
-            $validator = Validator::make($request->all(), $rules, $feedback);
         }
-    
-        if ($validator->fails()) 
-        {
-            return response()->json(['error' => $validator->errors()], 400);
-        }
-    
-        // Atualização dos dados
-        $data = $request->only(array_keys($regrasDinamicas));
-    
-        // Verifica se uma nova senha foi fornecida e a criptografa
-        if(isset($data['senha'])) {
-            $data['senha'] = bcrypt($data['senha']);
-        }
-    
-        $vendedor->fill($data); // Atualiza os atributos do modelo
-        $vendedor->save(); // Salva as mudanças no banco de dados
-    
-        return response()->json($vendedor, 200);
-        
-        
     }
+
+    $validator = Validator::make($request->all(), $regrasDinamicas, $feedback);
+
+    if ($validator->fails()) {
+        return response()->json(['error' => $validator->errors()], 400);
+    }
+
+    // Atualização dos dados
+    $data = $request->only(array_keys($regrasDinamicas));
+
+    // Verifica se uma nova senha foi fornecida e a criptografa
+    if (isset($data['senha'])) {
+        $data['senha'] = bcrypt($data['senha']);
+    }
+
+    $vendedor->fill($data); // Atualiza os atributos do modelo
+    $vendedor->save(); // Salva as mudanças no banco de dados
+
+    return response()->json($vendedor, 200);
+}
+
 
     /**
      * Remove the specified resource from storage.
