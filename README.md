@@ -1,4 +1,4 @@
-# Overview do projeto
+# Projeto Gestão de Vendas
 
 O “Projeto Vendas” é uma aplicação backend de API REST que permite o cadastro de venda para vendedores calculando sua comissão de 8,5% sobre cada venda.
 
@@ -14,26 +14,29 @@ Apache: É importante ter o Apache instalado para que consiga inicializar o serv
 Você também poderá optar pelo XAMPP para inicializar o servidor web e banco de dados local. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o site https://www.apachefriends.org/pt_br/download.html.
 
 Importante que tenha o Postman instalado em sua máquina. Caso não tenha, clique no link a seguir para realizar o download: https://www.postman.com/downloads/ 
-Lista de rotas:
+
+## Lista de rotas:
+
 Lista das rotas para utilizar no postamn(com o método http entre parênteses):
 
-Login(Post): localhost:8000/api/login
-Visualizar vendas(Get): localhost:8000/api/vendas
-Cadastrar Vendas(Post): localhost:8000/api/app/vendas 
-Visualizar venda específica(Get): localhost:8000/api/app/vendas/{venda}
+* **Login(Post)**: localhost:8000/api/login
+* **Visualizar vendas(Get)**: localhost:8000/api/vendas
+* **Cadastrar Vendas(Post)**: localhost:8000/api/app/vendas 
+* **Visualizar venda específica(Get)**: localhost:8000/api/app/vendas/{venda}
 
-Lista de vendedores(Get): localhost:8000/api/app/vendedores
-Cadastrar Vendedor(Post): localhost:8000/api/app/vendedores
-Visualizar vendedor específico: localhost:8000/api/app/vendedores/{id}
-Alterar cadastro completo do vendedor(Put): localhost:8000/api/app/vendedores/{id}
-Alterar cadastro parcialmente do vendedor(Patch): localhost:8000/api/app/vendedores/{id}
-Excluir vendedor(Delete): localhost:8000/api/app/vendedores/{id}
+* **Lista de vendedores(Get)**: localhost:8000/api/app/vendedores
+* **Cadastrar Vendedor(Post)**: localhost:8000/api/app/vendedores
+* **Visualizar vendedor específico:** localhost:8000/api/app/vendedores/{id}
+* **Alterar cadastro completo do vendedor(Put)**: localhost:8000/api/app/vendedores/{id}
+* **Alterar cadastro parcialmente do vendedor(Patch)**: localhost:8000/api/app/vendedores/{id}
+* **Excluir vendedor(Delete)**: localhost:8000/api/app/vendedores/{id}
+
 **Obs.: É importante verificar a porta ao inicializar o servidor. Por exemplo, caso ao inicializar o servidor na porta 3000 a URL será “localhost:3000”.**
 
 
 
 
-Fluxo da aplicação
+## Fluxo da aplicação
 Gerando o token de autenticação:
 
 Abra o postman e abra uma nova aba de request.
@@ -44,8 +47,8 @@ Em “key” digite “email” e “senha”. Em “value” insira o email “
 Será gerado o token para utilizar nas rotas protegidas.
 
 
-Vendedores
-Cadastro de vendedor:
+## Vendedores
+**Cadastro de vendedor:**
 Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendedores
 Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
 Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
@@ -54,20 +57,21 @@ Em “key” digite “nome_vendedor”, “email” e “senha”. Em “value�
 
 
 
-Lista de vendedores:
+**Lista de vendedores:**
 Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores
 Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
 Clique em “Send”.
 
 
-Pesquisa por Vendedor Específico:
+**Pesquisa por Vendedor Específico:**
 
 Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
 Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
 Clique em “Send”.
 
-Alteração de cadastro de vendedor:
-Atualização completa do cadastro:
+**Alteração de cadastro de vendedor:**
+
+- Atualização completa do cadastro:
 
 Selecione o método “POST” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
 Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
@@ -75,11 +79,11 @@ Na aba “Body” selecione a opção “x-www-form-urlencoded”.
 Em “key” digite “nome_vendedor”, “email”, “senha” e “_method”. Em “value” insira o novo nome do vendedor, o novo e-mail, a nova senha e o método que neste caso será "put” .
 Clique em “Send”.
 
-Atualização parcial do cadastro:
+- Atualização parcial do cadastro:
 
 A atualização parcial seguirá o mesmo passo a passo descrito acima, exceto pelo método, que deverá ser substituído na key “_method” por “patch”.
 
-Excluir Vendedor:
+**Excluir Vendedor:**
 
 Selecione o método “DELETE” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
 Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
@@ -87,17 +91,17 @@ Clique em “Send”.
 —----------------------------------------------------------------------------------------------------------------------
 
 
-Vendas
+## Vendas
 
-Lista de Vendas: 
+**Lista de Vendas:**
 
 Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendas
 Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
 Clique em “Send”.
 
-Inserir nova Venda:
+**Inserir nova Venda:**
 
-Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendas
+- Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendas.
 Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
 Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
 Na aba “Body” selecione a opção “x-www-form-urlencoded”.
@@ -105,7 +109,7 @@ Em “key” digite “vendedor_id”, “valor_total”, “data_venda”. Em �
 Clique em “Send”.
 
 
-Consultar Venda específica:
+**Consultar Venda específica:**
 
 Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendas/{id} (Substitua o “{id}” pelo Id da venda que deseja consultar, por exemplo “1”).
 Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
