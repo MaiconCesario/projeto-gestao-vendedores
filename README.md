@@ -4,16 +4,17 @@ O “Projeto Vendas” é uma aplicação backend de API REST que permite o cada
 
 A aplicação possui rotas protegidas, sendo necessário que o usuário administrador faça o login para gerar o Json Web Token(JWT) para ter acesso às demais rotas de cadastro, visualização de vendas, edição e remoção de vendedores.
 
-Requisitos necessários para utilizar a aplicação
-PHP: Versão utilizada para o projeto: 7.4.3. Importante conferir se o PHP está instalado em sua máquina. Caso já o tenha instalado, poderá verificar a versão com o comando “php -v” ou “php –version”.
+## Requisitos necessários para utilizar a aplicação
 
-Composer: É recomendado a utilização do composer na versão 2.7.3. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o site https://getcomposer.org/.
+**PHP**: Versão utilizada para o projeto: 7.4.3. Importante conferir se o PHP está instalado em sua máquina. Caso já o tenha instalado, poderá verificar a versão com o comando “php -v” ou “php –version”.
 
-Apache: É importante ter o Apache instalado para que consiga inicializar o servidor local para o projeto. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o sitehttps://www.ibm.com/docs/pt-br/rational-build-forge/8.0?topic=components-apache-http-server-installation-configuration.
+**Composer**: É recomendado a utilização do composer na versão 2.7.3. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o site https://getcomposer.org/.
+
+**Apache**: É importante ter o Apache instalado para que consiga inicializar o servidor local para o projeto. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o sitehttps://www.ibm.com/docs/pt-br/rational-build-forge/8.0?topic=components-apache-http-server-installation-configuration.
 
 Você também poderá optar pelo XAMPP para inicializar o servidor web e banco de dados local. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o site https://www.apachefriends.org/pt_br/download.html.
 
-Importante que tenha o Postman instalado em sua máquina. Caso não tenha, clique no link a seguir para realizar o download: https://www.postman.com/downloads/ 
+Importante que tenha o **Postman** instalado em sua máquina. Caso não tenha, clique no link a seguir para realizar o download: https://www.postman.com/downloads/ 
 
 ## Lista de rotas:
 
