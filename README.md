@@ -87,55 +87,57 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 **Gerando o token de autenticação**:
 ***
 
-Abra o postman e abra uma nova aba de request.
-Insira a URL: localhost:8000/api/login e selecione o método “POST”.
-Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
-Na aba “Body” selecione a opção “x-www-form-urlencoded”.
-Em “key” digite “email” e “senha”. Em “value” insira o email “adm@adm.com.br” e a senha “123456”.
-Será gerado o token para utilizar nas rotas protegidas.
+1. Abra o postman e abra uma nova aba de request.
+2. Insira a URL: localhost:8000/api/login e selecione o método “POST”.
+3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
+4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
+5. Em “key” digite “email” e “senha”. Em “value” insira o email “adm@adm.com.br” e a senha “123456”.
+6. Clique em "Send".
+7. Será gerado o token para utilizar nas rotas protegidas.
 
 
 ## Vendedores
 **Cadastro de vendedor:**
-Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendedores
-Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
-Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
-Na aba “Body” selecione a opção “x-www-form-urlencoded”.
-Em “key” digite “nome_vendedor”, “email” e “senha”. Em “value” insira o nome do novo vendedor, o e-mail e a senha.
+1. Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendedores
+2. Na aba “Authorization”, selecione a opção “Bearer Token” e, no campo Type, e insira o token no campo "Token".
+3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
+4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
+5. Em “key” digite “nome_vendedor”, “email” e “senha”. Em “value” insira o nome do novo vendedor, o e-mail e a senha.
+6. Clique em "Send".
 
 
 
 **Lista de vendedores:**
-Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores
-Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
-Clique em “Send”.
+1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
+3. Clique em “Send”.
 
 
 **Pesquisa por Vendedor Específico:**
 
-Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
-Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
-Clique em “Send”.
+1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo Token.
+3. Clique em “Send”.
 
 **Alteração de cadastro de vendedor:**
 
 - Atualização completa do cadastro:
 
-Selecione o método “POST” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
-Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
-Na aba “Body” selecione a opção “x-www-form-urlencoded”.
-Em “key” digite “nome_vendedor”, “email”, “senha” e “_method”. Em “value” insira o novo nome do vendedor, o novo e-mail, a nova senha e o método que neste caso será "put” .
-Clique em “Send”.
+1. Selecione o método “POST” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo "Token".
+3. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
+4. Em “key” digite “nome_vendedor”, “email”, “senha” e “_method”. Em “value” insira o novo nome do vendedor, o novo e-mail, a nova senha e o método que neste caso será "put” .
+5. Clique em “Send”.
 
 - Atualização parcial do cadastro:
 
-A atualização parcial seguirá o mesmo passo a passo descrito acima, exceto pelo método, que deverá ser substituído na key “_method” por “patch”.
+1. A atualização parcial seguirá o mesmo passo a passo descrito acima, exceto pelo método, que deverá ser substituído na key “_method” por “patch”.
 
 **Excluir Vendedor:**
 
-Selecione o método “DELETE” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
-Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
-Clique em “Send”.
+1. Selecione o método “DELETE” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
+3. Clique em “Send”.
 —----------------------------------------------------------------------------------------------------------------------
 
 
@@ -143,24 +145,24 @@ Clique em “Send”.
 
 **Lista de Vendas:**
 
-Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendas
-Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
-Clique em “Send”.
+1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendas
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
+3. Clique em “Send”.
 
 **Inserir nova Venda:**
 
-- Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendas.
-Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
-Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
-Na aba “Body” selecione a opção “x-www-form-urlencoded”.
-Em “key” digite “vendedor_id”, “valor_total”, “data_venda”. Em “value” insira o Id do o vendedor, o valor da venda e a data no formato YYYY-MM-DD.
-Clique em “Send”.
+1. Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendas.
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
+3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
+4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
+5. Em “key” digite “vendedor_id”, “valor_total”, “data_venda”. Em “value” insira o Id do o vendedor, o valor da venda e a data no formato YYYY-MM-DD.
+6. Clique em “Send”.
 
 
 **Consultar Venda específica:**
 
-Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendas/{id} (Substitua o “{id}” pelo Id da venda que deseja consultar, por exemplo “1”).
-Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
-Clique em “Send”.
+1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendas/{id} (Substitua o “{id}” pelo Id da venda que deseja consultar, por exemplo “1”).
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
+3. Clique em “Send”.
 
 
