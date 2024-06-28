@@ -1,6 +1,6 @@
 # Projeto Gestão de Vendas
 
-O “Projeto Vendas” é uma aplicação backend de API REST que permite o cadastro de venda para vendedores calculando sua comissão de 8,5% sobre cada venda.
+O “Projeto Vendas” é uma aplicação backend de API REST que permite o cadastro de venda para vendedores calculando sua comissão de 8,5% sobre cada venda e o envio diário de um relatório por e-mail com as vendas do dia.
 
 A aplicação possui rotas protegidas, sendo necessário que o usuário administrador faça o login para gerar o Json Web Token(JWT) para ter acesso às demais rotas de cadastro, visualização de vendas, edição e remoção de vendedores.
 
@@ -18,12 +18,12 @@ Importante que tenha o **Postman** instalado em sua máquina. Caso não tenha, c
 
 ## Lista de rotas:
 
-Lista das rotas para utilizar no postamn(com o método http entre parênteses):
+Lista das rotas para utilizar no postman(com o método http entre parênteses):
 
 * **Login(Post)**: localhost:8000/api/login
 * **Visualizar vendas(Get)**: localhost:8000/api/vendas
 * **Cadastrar Vendas(Post)**: localhost:8000/api/app/vendas 
-* **Visualizar venda específica(Get)**: localhost:8000/api/app/vendas/{venda}
+* **Visualizar venda específica(Get)**: localhost:8000/api/app/vendas/{id}
 
 * **Lista de vendedores(Get)**: localhost:8000/api/app/vendedores
 * **Cadastrar Vendedor(Post)**: localhost:8000/api/app/vendedores
@@ -32,7 +32,7 @@ Lista das rotas para utilizar no postamn(com o método http entre parênteses):
 * **Alterar cadastro parcialmente do vendedor(Patch)**: localhost:8000/api/app/vendedores/{id}
 * **Excluir vendedor(Delete)**: localhost:8000/api/app/vendedores/{id}
 
-**Obs.: É importante verificar a porta ao inicializar o servidor. Por exemplo, caso ao inicializar o servidor na porta 3000 a URL será “localhost:3000”.**
+**Obs.: É importante verificar a porta ao inicializar o servidor. Por exemplo, caso ao inicialize o servidor na porta 3000 a URL será “localhost:3000”.**
 
 
 
@@ -41,7 +41,7 @@ Lista das rotas para utilizar no postamn(com o método http entre parênteses):
 
 ### Preparando o ambiente:
 
-Crie o arquivo .env na pasta raiz. Vocêpoderá utilizar o arquivo .env.example como base. 
+Crie o arquivo .env na pasta raiz. Você poderá utilizar o arquivo .env.example como base. 
 
 - Para configurar o banco de dados siga o exemplo abaixo(Os campos devem ser preenchidos de acordo com as informações do banco de dados que irá utilizar):
 
@@ -56,6 +56,9 @@ DB_PASSWORD='Senha do Banco de Dados'
 
 Rode o comando `php artisan migrate` para criar as tabelas no Banco de dados.
 
+Rode o comando `php artisan db:seed --class=UserSeeder` para criar o usuário administrador na tabela "users".
+
+***
 - Para configurar o e-mail, certifique-se de que seu arquivo .env contenha as seguintes configurações para o envio de e-mails através do SMTP do Outlook (ou qualquer outro provedor que você esteja usando):
 
 ***
@@ -71,12 +74,12 @@ MAIL_FROM_NAME="${APP_NAME}"
 ***
 
 No arquivo app/Console/Commands/SendDailySalesReport.php, insira o e-mail de recebimento do relatório na linha de código conforme demonostrado abaixo:
-***
+
 `Mail::to('teste@teste.com')->send(new DailySalesReport($vendas_do_dia, $totalVendas));`
 ***
 
 No arquivo app/Console/Kernel.php defina a otina de e-mail na linhade código conforme demonstrado abaixo:
-***
+
 ```$schedule->command('sales:send-report')->dailyAt('05:18')```
 
 - Para instalar o Json Web Token(JWT), rode o comando `composer require tymon/jwt-auth "1.0.2"`
@@ -126,12 +129,12 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 1. Selecione o método “POST” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo "Token".
 3. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
-4. Em “key” digite “nome_vendedor”, “email”, “senha” e “_method”. Em “value” insira o novo nome do vendedor, o novo e-mail, a nova senha e o método que neste caso será "put” .
+4. Em “key” digite “nome_vendedor”, “email”, “senha” e “_method”. Em “value” insira o novo nome do vendedor, o novo e-mail, a nova senha e o método, que neste caso será "put” .
 5. Clique em “Send”.
 
 - Atualização parcial do cadastro:
 
-1. A atualização parcial seguirá o mesmo passo a passo descrito acima, exceto pelo método, que deverá ser substituído na key “_method” por “patch”.
+1. A atualização parcial seguirá o mesmo passo a passo descrito acima, exceto pelo método, que deverá ser substituído na key “_method” por “patch” e pela possibilidade alterar somente uma das informaações do cadsatro do vendedor.
 
 **Excluir Vendedor:**
 
