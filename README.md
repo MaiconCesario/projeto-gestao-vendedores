@@ -37,7 +37,54 @@ Lista das rotas para utilizar no postamn(com o método http entre parênteses):
 
 
 ## Fluxo da aplicação
-Gerando o token de autenticação:
+
+### Preparando o ambiente:
+
+Crie o arquivo .env na pasta raiz. Vocêpoderá utilizar o arquivo .env.example como base. 
+
+- Para configurar o banco de dados siga o exemplo abaixo(Os campos devem ser preenchidos de acordo com as informações do banco de dados que irá utilizar):
+
+***
+DB_CONNECTION=mysql<br>
+DB_HOST=127.0.0.1<br>
+DB_PORT=3306<br>
+DB_DATABASE=laravel<br>
+DB_USERNAME=root<br>
+DB_PASSWORD='Senha do Banco de Dados'
+***
+
+Rode o comando `php artisan migrate` para criar as tabelas no Banco de dados.
+
+- Para configurar o e-mail, certifique-se de que seu arquivo .env contenha as seguintes configurações para o envio de e-mails através do SMTP do Outlook (ou qualquer outro provedor que você esteja usando):
+
+***
+MAIL_MAILER=smtp<br>
+MAIL_HOST=smtp-mail.outlook.com<br>
+MAIL_PORT=587<br>
+MAIL_USERNAME=teste@outlook.com<br>
+MAIL_PASSWORD=SuaSenhaAqui<br>
+MAIL_ENCRYPTION=tls<br>
+MAIL_FROM_ADDRESS=teste@outlook.com<br>
+MAIL_FROM_NAME="${APP_NAME}"
+
+***
+
+No arquivo app/Console/Commands/SendDailySalesReport.php, insira o e-mail de recebimento do relatório na linha de código conforme demonostrado abaixo:
+***
+`Mail::to('teste@teste.com')->send(new DailySalesReport($vendas_do_dia, $totalVendas));`
+***
+
+No arquivo app/Console/Kernel.php defina a otina de e-mail na linhade código conforme demonstrado abaixo:
+***
+```$schedule->command('sales:send-report')->dailyAt('05:18')```
+
+- Para instalar o Json Web Token(JWT), rode o comando `composer require tymon/jwt-auth "1.0.2"`
+
+Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta no arquivo .env.
+
+
+**Gerando o token de autenticação**:
+***
 
 Abra o postman e abra uma nova aba de request.
 Insira a URL: localhost:8000/api/login e selecione o método “POST”.
