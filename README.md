@@ -6,7 +6,7 @@ A aplicação possui rotas protegidas, sendo necessário que o usuário administ
 
 ## Requisitos necessários para utilizar a aplicação
 
-**PHP**: Versão utilizada para o projeto: 7.4.3. Importante conferir se o PHP está instalado em sua máquina. Caso já o tenha instalado, poderá verificar a versão com o comando “php -v” ou “php –version”.
+**PHP**: Versão utilizada para o projeto: 7.4.3. Laravel Framework 8.83.27. Importante conferir se o PHP está instalado em sua máquina. Caso já o tenha instalado, poderá verificar a versão com o comando “php -v” ou “php –version”.
 
 **Composer**: É recomendado a utilização do composer na versão 2.7.3. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o site https://getcomposer.org/.
 
@@ -78,7 +78,7 @@ No arquivo app/Console/Commands/SendDailySalesReport.php, insira o e-mail de rec
 `Mail::to('teste@teste.com')->send(new DailySalesReport($vendas_do_dia, $totalVendas));`
 ***
 
-No arquivo app/Console/Kernel.php defina a otina de e-mail na linhade código conforme demonstrado abaixo:
+No arquivo app/Console/Kernel.php defina a rotina de e-mail na linha de código conforme demonstrado abaixo:
 
 ```$schedule->command('sales:send-report')->dailyAt('05:18')```
 
