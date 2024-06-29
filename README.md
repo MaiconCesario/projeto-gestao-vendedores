@@ -8,7 +8,8 @@ A aplicação possui rotas protegidas, sendo necessário que o usuário administ
 
 **PHP**: Versão utilizada para o projeto: 7.4.3. Laravel Framework 8.83.27. Importante conferir se o PHP está instalado em sua máquina. Caso já o tenha instalado, poderá verificar a versão com o comando “php -v” ou “php –version”.
 
-**Composer**: É recomendado a utilização do composer na versão 2.7.3. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o site https://getcomposer.org/.
+**Composer**: É recomendado a utilização do composer na versão 2.7.3. Para instalar o composer, rode o comando `composer install
+`.
 
 **Apache**: É importante ter o Apache instalado para que consiga inicializar o servidor local para o projeto. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o sitehttps://www.ibm.com/docs/pt-br/rational-build-forge/8.0?topic=components-apache-http-server-installation-configuration.
 
