@@ -47,7 +47,7 @@ class SendDailySalesReport extends Command
 
         $totalVendas = $vendas_do_dia->sum('valor_total');
 
-        Mail::to('teste@gmail.com')->send(new DailySalesReport($vendas_do_dia, $totalVendas));
+        Mail::to('testesuportemw@outlook.com')->send(new DailySalesReport($vendas_do_dia, $totalVendas));
 
       Log::info('O comando sales:send-report está sendo executado.');
     
