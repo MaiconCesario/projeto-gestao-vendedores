@@ -95,7 +95,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 2. Insira a URL: localhost:8000/api/login e selecione o método “POST”.
 3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
 4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
-5. Em “key” digite “email” e “senha”. Em “value” insira o email “adm@adm.com.br” e a senha “123456”.
+5. Em “key” digite “email” e "password". Em “value” insira o email “adm@adm.com.br” e a senha “123456”.
 6. Clique em "Send".
 7. Será gerado o token para utilizar nas rotas protegidas.
 
