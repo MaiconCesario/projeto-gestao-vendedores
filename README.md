@@ -6,7 +6,7 @@ A aplicação possui rotas protegidas, sendo necessário que o usuário administ
 
 ## Requisitos necessários para utilizar a aplicação
 
-**PHP**: Versão utilizada para o projeto: 7.4.3. Laravel Framework 8.83.27. Importante conferir se o PHP está instalado em sua máquina. Caso já o tenha instalado, poderá verificar a versão com o comando “php -v” ou “php –version”.
+**PHP**: Versão utilizada para o projeto: 7.4.3. Laravel Framework 8.83.27. Importante conferir se o PHP está instalado em sua máquina. Caso já o tenha instalado, poderá verificar a versão com o comando `php -v` ou `php –version`. Para verificar a versão do laravel, utilize o comando `php artisan --version`
 
 **Composer**: É recomendado a utilização do composer na versão 2.7.3. Para instalar o composer, rode o comando `composer install
 `.
