@@ -88,7 +88,7 @@ No arquivo app/Console/Kernel.php defina a rotina de e-mail na linha de código 
 Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta no arquivo .env.
 
 
-**Gerando o token de autenticação**:
+## **Gerando o token de autenticação**:
 ***
 
 1. Abra o postman e abra uma nova aba de request.
