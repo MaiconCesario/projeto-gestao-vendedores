@@ -1,5 +1,12 @@
 # Projeto Gestão de Vendas
 
+[Requisitos](#requisitos-necessários-para-utilizar-a-aplicação) |
+[Lista de Rotas](#lista-de-rotas) |
+[Preparando o Ambiente](#preparando-o-ambiente) |
+[Token de autenticação](#gerando-o-token-de-autenticação) |
+[Vendedores](#vendedores) |
+[Vendas](#vendas)
+
 O “Projeto Gestão de Vendas” é uma aplicação backend de API REST que permite o cadastro de venda para vendedores calculando sua comissão de 8,5% sobre cada venda e o envio diário de um relatório por e-mail com as vendas do dia.
 
 A aplicação possui rotas protegidas, sendo necessário que o usuário administrador faça o login para gerar o Json Web Token(JWT) para ter acesso às demais rotas de cadastro, visualização de vendas, edição e remoção de vendedores.
