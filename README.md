@@ -6,7 +6,7 @@
 [Token de autenticação](#gerando-o-token-de-autenticação) |
 [Vendedores](#vendedores) |
 [Vendas](#vendas) |
-[Testes] (#testes)
+[Testes](#testes)
 
 O “Projeto Gestão de Vendas” é uma aplicação backend de API REST que permite o cadastro de venda para vendedores calculando sua comissão de 8,5% sobre cada venda e o envio diário de um relatório por e-mail com as vendas do dia.
 
@@ -183,3 +183,5 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 Com o bojetivo de colocar em prática o conhecimento que estou adquirindo estudando testes unitários, foi adicionado o arquivo tests/Feature/UpdateTest.php.
 
 Basicamente este teste consiste em consultar a executação da atualização do cadstro de um vendedor através do verbo PUT. Para executar o teste configurado, utilize o comando `php artisan test --filter=test_update`.
+
+**Desenvolvido por Maicon Cesário** - (Linkedin)[https://www.linkedin.com/in/maicon-cesario/]
