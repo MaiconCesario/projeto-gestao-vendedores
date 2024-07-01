@@ -5,7 +5,8 @@
 [Preparando o Ambiente](#preparando-o-ambiente) |
 [Token de autenticação](#gerando-o-token-de-autenticação) |
 [Vendedores](#vendedores) |
-[Vendas](#vendas)
+[Vendas](#vendas) |
+[Testes] (#testes)
 
 O “Projeto Gestão de Vendas” é uma aplicação backend de API REST que permite o cadastro de venda para vendedores calculando sua comissão de 8,5% sobre cada venda e o envio diário de um relatório por e-mail com as vendas do dia.
 
