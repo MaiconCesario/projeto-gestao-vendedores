@@ -177,3 +177,8 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 3. Clique em “Send”.
 
 
+## Testes
+
+Com o bojetivo de colocar em prática o conhecimento que estou adquirindo estudando testes unitários, foi adicionado o arquivo tests/Feature/UpdateTest.php.
+
+Basicamente este teste consiste em consultar a executação da atualização do cadstro de um vendedor através do verbo PUT. Para executar o teste configurado, utilize o comando `php artisan test --filter=test_update`.
