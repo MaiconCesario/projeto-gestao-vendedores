@@ -184,4 +184,4 @@ Com o bojetivo de colocar em prática o conhecimento que estou adquirindo estuda
 
 Basicamente este teste consiste em consultar a executação da atualização do cadstro de um vendedor através do verbo PUT. Para executar o teste configurado, utilize o comando `php artisan test --filter=test_update`.
 
-**Desenvolvido por Maicon Cesário** - (Linkedin)[https://www.linkedin.com/in/maicon-cesario/]
+**Desenvolvido por Maicon Cesário** - [Linkedin](https://www.linkedin.com/in/maicon-cesario/)
