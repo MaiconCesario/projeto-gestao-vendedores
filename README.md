@@ -19,7 +19,7 @@ A aplicação possui rotas protegidas, sendo necessário que o usuário administ
 **Composer**: É recomendado a utilização do composer na versão 2.7.3. Para instalar o composer, rode o comando `composer install
 `.
 
-**Apache**: É importante ter o Apache instalado para que consiga inicializar o servidor local para o projeto. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o sitehttps://www.ibm.com/docs/pt-br/rational-build-forge/8.0?topic=components-apache-http-server-installation-configuration.
+**Apache**: É importante ter o Apache instalado para que consiga inicializar o servidor local para o projeto. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o site https://www.ibm.com/docs/pt-br/rational-build-forge/8.0?topic=components-apache-http-server-installation-configuration.
 
 Você também poderá optar pelo XAMPP para inicializar o servidor web e banco de dados local. Para mais informações sobre como instalá-lo em sua máquina de acordo com sistema operacional que utiliza, acesse o site https://www.apachefriends.org/pt_br/download.html.
 
@@ -36,7 +36,7 @@ Lista das rotas para utilizar no postman(com o método http entre parênteses):
 
 * **Lista de vendedores(Get)**: localhost:8000/api/app/vendedores
 * **Cadastrar Vendedor(Post)**: localhost:8000/api/app/vendedores
-* **Visualizar vendedor específico:** localhost:8000/api/app/vendedores/{id}
+* **Visualizar vendedor específico(Get):** localhost:8000/api/app/vendedores/{id}
 * **Alterar cadastro completo do vendedor(Put)**: localhost:8000/api/app/vendedores/{id}
 * **Alterar cadastro parcialmente do vendedor(Patch)**: localhost:8000/api/app/vendedores/{id}
 * **Excluir vendedor(Delete)**: localhost:8000/api/app/vendedores/{id}
@@ -111,7 +111,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 ## Vendedores
 **Cadastro de vendedor:**
 1. Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendedores
-2. Na aba “Authorization”, selecione a opção “Bearer Token” e, no campo Type, e insira o token no campo "Token".
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo "Token".
 3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
 4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
 5. Em “key” digite “nome_vendedor”, “email” e “senha”. Em “value” insira o nome do novo vendedor, o e-mail e a senha.
@@ -128,7 +128,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 **Pesquisa por Vendedor Específico:**
 
 1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
-2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo Token.
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
 3. Clique em “Send”.
 
 **Alteração de cadastro de vendedor:**
@@ -143,14 +143,13 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 - Atualização parcial do cadastro:
 
-1. A atualização parcial seguirá o mesmo passo a passo descrito acima, exceto pelo método, que deverá ser substituído na key “_method” por “patch” e pela possibilidade alterar somente uma das informaações do cadsatro do vendedor.
+1. A atualização parcial seguirá o mesmo passo a passo descrito acima, exceto pelo método, que deverá ser substituído na key “_method” por “patch” e pela possibilidade de alterar somente uma das informaações do cadastro do vendedor.
 
 **Excluir Vendedor:**
 
 1. Selecione o método “DELETE” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
-2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
+2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo "Token".
 3. Clique em “Send”.
-—----------------------------------------------------------------------------------------------------------------------
 
 
 ## Vendas
@@ -163,9 +162,9 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 **Inserir nova Venda:**
 
-1. Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendas.
+1. Selecione o método "POST" e insira a URL: localhost:8000/api/app/vendas.
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
-3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
+3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em "value", selecione a opção “application/json”.
 4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
 5. Em “key” digite “vendedor_id”, “valor_total”, “data_venda”. Em “value” insira o Id do o vendedor, o valor da venda e a data no formato YYYY-MM-DD.
 6. Clique em “Send”.
@@ -182,7 +181,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 Com o objetivo de colocar em prática o conhecimento que estou adquirindo estudando testes unitários, foi adicionado o arquivo tests/Feature/UpdateTest.php.
 
-Basicamente este teste consiste em consultar a executação da atualização do cadastro de um vendedor através do verbo PUT no seguinte fluxo:
+Basicamente este teste consiste em consultar a execução da atualização do cadastro de um vendedor através do verbo PUT no seguinte fluxo:
 
 * Criação de um vendedor;
 * Autenticação do usuário;
