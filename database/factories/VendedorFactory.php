@@ -15,7 +15,7 @@ class VendedorFactory extends Factory
         return [
             'nome_vendedor' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
-            'senha' => Hash::make('password'), // ou bcrypt('password')
+            'senha' => Hash::make('password'), 
         ];
     }
 }
