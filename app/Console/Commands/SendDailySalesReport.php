@@ -7,6 +7,8 @@ use App\Models\Venda;
 use App\Mail\DailySalesReport;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
+
 
 class SendDailySalesReport extends Command
 {

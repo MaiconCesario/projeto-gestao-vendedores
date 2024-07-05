@@ -91,6 +91,10 @@ No arquivo app/Console/Kernel.php defina a rotina de e-mail na linha de código 
 
 ```$schedule->command('sales:send-report')->dailyAt('05:18')```
 
+Após estas configurações, rodar o comando `php artisan sales:send-report` para configurar o disparo automático do e-mail como relatório de vendas.
+
+***
+
 - Para instalar o Json Web Token(JWT), rode o comando `composer require tymon/jwt-auth "1.0.2"`
 
 Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta no arquivo .env.
