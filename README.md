@@ -29,21 +29,17 @@ Importante que tenha o **Postman** instalado em sua máquina. Caso não tenha, c
 
 Lista das rotas para utilizar no postman(com o método http entre parênteses):
 
-* **Login(Post)**: localhost:8000/api/login
-* **Visualizar vendas(Get)**: localhost:8000/api/vendas
-* **Cadastrar Vendas(Post)**: localhost:8000/api/app/vendas 
-* **Visualizar venda específica(Get)**: localhost:8000/api/app/vendas/{id}
+* **Login(Post)**: /api/login
+* **Visualizar vendas(Get)**: /api/vendas
+* **Cadastrar Vendas(Post)**: /api/app/vendas 
+* **Visualizar venda específica(Get)**: /api/app/vendas/{id}
 
-* **Lista de vendedores(Get)**: localhost:8000/api/app/vendedores
-* **Cadastrar Vendedor(Post)**: localhost:8000/api/app/vendedores
-* **Visualizar vendedor específico(Get):** localhost:8000/api/app/vendedores/{id}
-* **Alterar cadastro completo do vendedor(Put)**: localhost:8000/api/app/vendedores/{id}
+* **Lista de vendedores(Get)**: /api/app/vendedores
+* **Cadastrar Vendedor(Post)**: /api/app/vendedores
+* **Visualizar vendedor específico(Get):** /api/app/vendedores/{id}
+* **Alterar cadastro completo do vendedor(Put)**: /api/app/vendedores/{id}
 * **Alterar cadastro parcialmente do vendedor(Patch)**: localhost:8000/api/app/vendedores/{id}
-* **Excluir vendedor(Delete)**: localhost:8000/api/app/vendedores/{id}
-
-**Obs.: É importante verificar a porta ao inicializar o servidor. Por exemplo, caso ao inicialize o servidor na porta 3000 a URL será “localhost:3000”.**
-
-
+* **Excluir vendedor(Delete)**: /api/app/vendedores/{id}
 
 
 ## Fluxo da aplicação
@@ -54,14 +50,14 @@ Crie o arquivo .env na pasta raiz. Você poderá utilizar o arquivo .env.example
 
 - Para configurar o banco de dados siga o exemplo abaixo(Os campos devem ser preenchidos de acordo com as informações do banco de dados que irá utilizar):
 
-***
-DB_CONNECTION=mysql<br>
-DB_HOST=127.0.0.1<br>
-DB_PORT=3306<br>
-DB_DATABASE=laravel<br>
-DB_USERNAME=root<br>
+```php
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=Nome_do_banco_de_dados
+DB_USERNAME=root
 DB_PASSWORD='Senha do Banco de Dados'
-***
+```
 
 Rode o comando `php artisan migrate` para criar as tabelas no Banco de dados.
 
@@ -70,15 +66,16 @@ Rode o comando `php artisan db:seed --class=UserSeeder` para criar o usuário ad
 ***
 - Para configurar o e-mail, certifique-se de que seu arquivo .env contenha as seguintes configurações para o envio de e-mails através do SMTP do Outlook (ou qualquer outro provedor que você esteja usando):
 
-***
-MAIL_MAILER=smtp<br>
-MAIL_HOST=smtp-mail.outlook.com<br>
-MAIL_PORT=587<br>
-MAIL_USERNAME=teste@outlook.com<br>
-MAIL_PASSWORD=SuaSenhaAqui<br>
-MAIL_ENCRYPTION=tls<br>
-MAIL_FROM_ADDRESS=teste@outlook.com<br>
+```php
+MAIL_MAILER=smtp
+MAIL_HOST=smtp-mail.outlook.com
+MAIL_PORT=587
+MAIL_USERNAME=teste@outlook.com
+MAIL_PASSWORD=SuaSenhaAqui
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=teste@outlook.com
 MAIL_FROM_NAME="${APP_NAME}"
+```
 
 ***
 
