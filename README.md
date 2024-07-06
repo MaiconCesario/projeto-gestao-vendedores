@@ -38,7 +38,7 @@ Lista das rotas para utilizar no postman(com o método http entre parênteses):
 * **Cadastrar Vendedor(Post)**: /api/app/vendedores
 * **Visualizar vendedor específico(Get):** /api/app/vendedores/{id}
 * **Alterar cadastro completo do vendedor(Put)**: /api/app/vendedores/{id}
-* **Alterar cadastro parcialmente do vendedor(Patch)**: localhost:8000/api/app/vendedores/{id}
+* **Alterar cadastro parcialmente do vendedor(Patch)**: api/app/vendedores/{id}
 * **Excluir vendedor(Delete)**: /api/app/vendedores/{id}
 
 
