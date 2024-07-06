@@ -82,7 +82,6 @@ MAIL_FROM_NAME="${APP_NAME}"
 No arquivo app/Console/Commands/SendDailySalesReport.php, insira o e-mail de recebimento do relatório na linha de código conforme demonostrado abaixo:
 
 `Mail::to('teste@teste.com')->send(new DailySalesReport($vendas_do_dia, $totalVendas));`
-***
 
 No arquivo app/Console/Kernel.php defina a rotina de e-mail na linha de código conforme demonstrado abaixo:
 
@@ -91,6 +90,8 @@ No arquivo app/Console/Kernel.php defina a rotina de e-mail na linha de código 
 Após estas configurações, rodar o comando `php artisan sales:send-report` para configurar o disparo automático do e-mail como relatório de vendas.
 
 ***
+
+## Instalando o Json Web Token
 
 - Para instalar o Json Web Token(JWT), rode o comando `composer require tymon/jwt-auth "1.0.2"`
 
@@ -101,7 +102,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 ***
 
 1. Abra o postman e abra uma nova aba de request.
-2. Insira a URL: localhost:8000/api/login e selecione o método “POST”.
+2. Utilize o endpoint: /api/login e selecione o método “POST”.
 3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
 4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
 5. Em “key” digite “email” e "password". Em “value” insira o email “adm@adm.com.br” e a senha “123456”.
@@ -111,7 +112,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 ## Vendedores
 **Cadastro de vendedor:**
-1. Selecione o método “Post” e insira a URL: localhost:8000/api/app/vendedores
+1. Selecione o método “Post” e utilize o endpoint: /api/app/vendedores
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo "Token".
 3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em value, selecione a opção “application/json”.
 4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
@@ -121,14 +122,14 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 
 **Lista de vendedores:**
-1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores
+1. Selecione o método “GET” e utilize o endpoint: /api/app/vendedores
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
 3. Clique em “Send”.
 
 
 **Pesquisa por Vendedor Específico:**
 
-1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
+1. Selecione o método “GET” e utilize o endpoint: /api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
 3. Clique em “Send”.
 
@@ -136,7 +137,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 - Atualização completa do cadastro:
 
-1. Selecione o método “POST” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
+1. Selecione o método “POST” e utilize o endpoint: /api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo "Token".
 3. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
 4. Em “key” digite “nome_vendedor”, “email”, “senha” e “_method”. Em “value” insira o novo nome do vendedor, o novo e-mail, a nova senha e o método, que neste caso será "put” .
@@ -148,7 +149,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 **Excluir Vendedor:**
 
-1. Selecione o método “DELETE” e insira a URL: localhost:8000/api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
+1. Selecione o método “DELETE” e utilize o endpoint: /api/app/vendedores/{id} (Substitua o “{id}” pelo Id do vendedor que deseja consultar, por exemplo “1”).
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo "Token".
 3. Clique em “Send”.
 
@@ -157,13 +158,13 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 **Lista de Vendas:**
 
-1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendas
+1. Selecione o método “GET” e utilize o endpoint: /api/app/vendas
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
 3. Clique em “Send”.
 
 **Inserir nova Venda:**
 
-1. Selecione o método "POST" e insira a URL: localhost:8000/api/app/vendas.
+1. Selecione o método "POST" e utilize o endpoint: /api/app/vendas.
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo "Type" e insira o token no campo "Token".
 3. Na aba “Headers” em “Key” selecione a opção “Accept”. Em "value", selecione a opção “application/json”.
 4. Na aba “Body” selecione a opção “x-www-form-urlencoded”.
@@ -173,7 +174,7 @@ Após isso, rode o comando `php artisan jwt:secret` para gerar uma chave secreta
 
 **Consultar Venda específica:**
 
-1. Selecione o método “GET” e insira a URL: localhost:8000/api/app/vendas/{id} (Substitua o “{id}” pelo Id da venda que deseja consultar, por exemplo “1”).
+1. Selecione o método “GET” e utilize o endpoint: /api/app/vendas/{id} (Substitua o “{id}” pelo Id da venda que deseja consultar, por exemplo “1”).
 2. Na aba “Authorization”, selecione a opção “Bearer Token” no campo Type e insira o token no campo Token.
 3. Clique em “Send”.
 
