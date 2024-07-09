@@ -23,6 +23,9 @@ class VendedorRepository
 
     public function update(Vendedor $vendedor, array $data)
     {
+        if (isset($data['senha'])) {
+            $data['senha'] = Hash::make($data['senha']);
+        }
         $vendedor->fill($data);
         $vendedor->save();
     }
